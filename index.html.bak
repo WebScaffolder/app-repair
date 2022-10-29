@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Repair Management</title>
+        <meta name="csrf-token" content="LiJnolCI6lqehnnBJDm2SPqjK0KbC0Xdi9RNUXRt" />
+        <meta name="base-url" content="" />
+
+        <link rel="shortcut icon" href="/favicon.ico?v=3" type="image/x-icon">
+
+        <script src="/envconfig.js" type="text/javascript"></script>
+        <link rel="manifest" href="/manifest.json" /> 
+
+        <script>
+        var base_url = window.iconfig.base + "/repair" + (window.iconfig.port ? '-' + window.iconfig.port : '');
+        var public_directory = "";
+        //const url = new URL(window.location.href);
+        console.log("window.top.location.href",window.top.location.href)
+        </script>
+
+        <script type="text/javascript">
+        if (/pos/.test(window.top.location.href)) {
+            document.write('<link rel="stylesheet" type="text/css" href="/pos_assets/css/pos.css" />');
+            document.write('<link rel="stylesheet" type="text/css" href="/pos_assets/css/custom.css" />');
+        } else {
+            document.write('<link rel="stylesheet" type="text/css" href="/css/app.css" />');
+            document.write('<link rel="stylesheet" type="text/css" href="/css/custom.css" />');
+        }
+        </script>
+
+
+        <!--<link href="/css/app.css" rel="stylesheet">
+        <link href="/css/custom.css" rel="stylesheet">-->
+        <style type="text/css">
+            *:not(i) {
+                font-size: 13px !important;
+            }
+        </style>
+
+    </head>
+    <body>
+        <div id="app">
+            <main-app></main-app>
+        </div>
+
+        <script src="/js/lang.js"></script>
+
+        <!--<script src="/js/custom.js"></script>
+        <script src="/js/manifest.js"></script>
+        <script src="/js/vendor.js"></script>
+        <script src="/js/app.js"></script>
+
+        <script src="pos_assets/js/custom.js"></script>
+        <script src="pos_assets/js/manifest.js"></script>
+        <script src="pos_assets/js/vendor.js"></script>
+        <script src="pos_assets/js/app.js"></script>-->
+
+    <script>
+        function loadJS(FILE_URL, async = true) {
+      let scriptEle = document.createElement("script");
+
+      scriptEle.setAttribute("src", FILE_URL);
+      scriptEle.setAttribute("type", "text/javascript");
+      scriptEle.setAttribute("async", async);
+
+      document.body.appendChild(scriptEle);
+
+      // success event
+      scriptEle.addEventListener("load", () => {
+        console.log("File loaded")
+      });
+       // error event
+      scriptEle.addEventListener("error", (ev) => {
+        console.log("Error on loading file", ev);
+      });
+    }
+
+        if (/pos/.test(window.top.location.href)) {
+            loadJS("/pos_assets/js/custom.js", true);
+            loadJS("/pos_assets/js/manifest.js", true);
+            loadJS("/pos_assets/js/vendor.js", true);
+            loadJS("/pos_assets/js/app.js", true);
+        } else {
+            loadJS("/js/custom.js", true);
+            loadJS("/js/manifest.js", true);
+            loadJS("/js/vendor.js", true);
+            loadJS("/js/app.js", true);
+        }
+
+
+</script>
+
+<script type="text/javascript">
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/service-worker.js');
+    }
+</script>
+
+
+        <script src="https://maps.googleapis.com/maps/api/js?key=&libraries=places"></script>
+
+    </body>
+</html>
