@@ -15,7 +15,7 @@
         <link rel="manifest" href="/manifest.json" /> 
 
         <script>
-        var base_url = window.iconfig.base + "/repair" + (window.iconfig.port ? '-' + window.iconfig.port : '');
+        var base_url = window.iconfig.api_url + "/repair" + (window.iconfig.app_code ? '-' + window.iconfig.app_code : '');
         var public_directory = "";
         //const url = new URL(window.location.href);
         console.log("window.top.location.href",window.top.location.href)
